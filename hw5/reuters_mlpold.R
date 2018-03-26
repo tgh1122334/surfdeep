@@ -3,8 +3,8 @@
 library(keras)
 
 max_words <- 1000
-batch_size <- 128
-epochs <- 10
+batch_size <- 32
+epochs <- 5
 
 cat('Loading data...\n')
 reuters <- dataset_reuters(num_words = max_words, test_split = 0.2)
@@ -41,11 +41,9 @@ model %>%
   layer_dense(units = 512, input_shape = c(max_words)) %>% 
   layer_activation(activation = 'relu') %>% 
   layer_dropout(rate = 0.5) %>% 
-  layer_dense(units = 512, input_shape = 512) %>%
-  layer_dropout(rate = 0.5) %>% 
   layer_dense(units = num_classes) %>% 
   layer_activation(activation = 'softmax')
-summary(model)
+
 model %>% compile(
   loss = 'categorical_crossentropy',
   optimizer = 'adam',
@@ -68,5 +66,3 @@ score <- model %>% evaluate(
 
 cat('Test score:', score[[1]], '\n')
 cat('Test accuracy', score[[2]], '\n')
-plot(history)
-
