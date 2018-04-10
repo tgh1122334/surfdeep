@@ -109,3 +109,6 @@ if(!data_augmentation){
   )
   
 }
+
+evaluate(model,x_test,y_test)
+
