@@ -1,1 +1,2 @@
 \select@language {english}
+\beamer@sectionintoc {1}{SurvivalNet}{3}{0}{1}
