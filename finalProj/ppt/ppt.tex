@@ -3,7 +3,7 @@
 
 \usepackage[english]{babel}
 %\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+%\usepackage[T1]{fontenc}
 \usepackage{booktabs}
 
 
@@ -144,6 +144,9 @@
 			of hyperparameters.
 			\item  Based on the probabilistic model, the design with the best expected accuracy is inferred
 			as the next design to test.
+			\item We compared
+			the performance of SurvivalNet models with Cox elastic net (CEN) and random survival forest (RSF) models
+			using data from multiple TCGA projects: pan-glioma (LGG/GBM), breast (BRCA), and pan-kidney (KIPAN)
 		\end{itemize}
 	\end{frame}
 	
@@ -162,9 +165,9 @@
 			worst performance generally.
 			\item Comparing performance across diseases,
 			we noticed that prediction accuracy generally decreases as the proportion of right-censored samples in a dataset
-			increases. This pattern holds for all prediction methods. Glioma had the highest overall prediction accuracy,
+			increases. This pattern holds for all prediction methods. LGG/GBM had the highest overall prediction accuracy,
 			being a uniformly fatal disease that has relatively fewer long-term survivors and incomplete follow-up (62-64\%).
-			Breast carcinoma had the lowest overall prediction accuracy with more than 86-91\% of BRCA samples being
+			BRCA had the lowest overall prediction accuracy with more than 86-91\% of BRCA samples being
 			right-censored.
 		\end{itemize}
 	\end{frame}
@@ -288,11 +291,13 @@
 			(the whole tumor except edema) and whole tumor (necrosis, enhancement and edema). 
 			\item The handcrafed features
 			can be divided into three groups: (I) geometry, (II) intensity and (III) texture. 
+			\item The geometry features describe the three-dimensional shape characteristics of the tumor. The intensity features describe the first-order statistical distribution of the voxel intensities within the tumor. the texture features describe the patterns, or the second- and high-order spatial distributions of the intensities.
 			\item A total of
 			1403 handcrafed features are extracted, including 23 geometry features, 340 intensity features, and 1040 texture
 			features. 
 		\end{itemize}
 	\end{frame}
+	
 	
 	\begin{frame}{Feature Extraction}{Deep Features}
 		\begin{itemize}
@@ -347,7 +352,7 @@
 			as predictive factors.
 			\item Then, we further reduced
 			the data dimension by removing highly correlated features. Here the correlation coefficient between each pair of
-			features is calculated. For feature pair with correlated coefficient ≥0.90, the more prognostic feature is retained
+			features is calculated. For feature pair with correlated coefficient $\geq$0.90, the more prognostic feature is retained
 			and the other feature is removed. Finally, the remained 150 image features are selected and regarded as robust,
 			predictive and non-redundant.
 		\end{itemize}
@@ -427,5 +432,8 @@
 		\end{figure}
 	\end{frame}
 	
+	\begin{frame}
+	\includegraphics[scale=0.4]{res22}
+\end{frame}
 	
 \end{document}
