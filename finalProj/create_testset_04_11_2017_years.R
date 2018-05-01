@@ -101,7 +101,7 @@ library(lubridate)
 library(zoo)
 library(tseries)
 
-spComp <- read.table("stocks/SP500.txt",header = T,sep = "\t") 
+spComp <- read.table("SP500.txt",header = T,sep = "\t") 
 
 ## specify time period
 dateStart_vec <- c("2016-01-01","2015-01-01")           

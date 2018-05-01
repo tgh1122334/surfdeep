@@ -108,7 +108,7 @@ dateEnd <- "2017-04-01"
 ## extract symbols and number of iterations
 symbols <- as.character(spComp[, 1])
 nAss <- length(symbols)
-
+nAss = 10
 ## download data on first stock as zoo object
 for (i in 1:nAss) {
   ## display progress by showing the current iteration step
