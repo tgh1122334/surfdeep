@@ -85,10 +85,10 @@ create_testset=function(data,initialpts,txtdir,imgdir){
 }
 
 
-module load intel/15.3
-module load mkl
-module load R/3.2.2
-R
+#module load intel/15.3
+#module load mkl
+#module load R/3.2.2
+#R
 # work in dragontooth
 
 #setwd("/Users/manzhang/Documents/STAT PHD/Hong/Stock image prediction")
@@ -99,14 +99,14 @@ library(lubridate)
 library(zoo)
 library(tseries)
 
-spComp <- read.table("stocks/SP100.txt",header = T,sep = "\t") 
+spComp <- read.table("SP500.txt",header = T,sep = "\t") 
 ## specify time period
 dateStart <- "2007-04-01"               
 dateEnd1 <- "2016-11-01"
 dateEnd <- "2017-04-01"
 
 ## extract symbols and number of iterations
-symbols <- spComp[, 1]
+symbols <- as.character(spComp[, 1])
 nAss <- length(symbols)
 
 ## download data on first stock as zoo object
