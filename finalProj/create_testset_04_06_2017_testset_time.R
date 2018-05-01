@@ -113,7 +113,7 @@ nAss <- length(symbols)
 for (i in 1:nAss) {
   ## display progress by showing the current iteration step
   cat("Downloading ", i, " out of ", nAss , "\n")
-  result <- try(z <- get.hist.quote(instrument = symbols[i], start = dateStart,
+  result <- try(z <- get.hist.quote(instrument = as.character(symbols[i]), start = dateStart,
                                     end = dateEnd, provider="yahoo",quote = c("Open", "High", "Low", "Close"),
                                     compression="d", retclass = "zoo", quiet = T))
   cmd=paste("mkdir -p testset_time/testset/ytab",i,sep = "")
