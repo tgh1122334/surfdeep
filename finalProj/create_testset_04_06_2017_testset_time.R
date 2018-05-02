@@ -110,7 +110,7 @@ symbols <- as.character(spComp[, 1])
 nAss <- length(symbols)
 nAss = 10
 ## download data on first stock as zoo object
-for (i in 1:nAss) {
+for (i in 138:nAss) {
   ## display progress by showing the current iteration step
   cat("Downloading ", i, " out of ", nAss , "\n")
   result <- try(z <- get.hist.quote(instrument = as.character(symbols[i]), start = dateStart,
